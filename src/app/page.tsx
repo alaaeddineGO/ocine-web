@@ -6,7 +6,7 @@ import Link from "next/link";
 import { clients } from "@/constant/client";
 import { features } from "@/constant/features";
 import Card from "@/components/Card";
-import Test from "@/components/test";
+import Test from "../components/Test";
 
 export default function Home() {
   return (
