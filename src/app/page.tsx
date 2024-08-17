@@ -101,7 +101,7 @@ export default function Home() {
           
             <div className="text-center flex flex-col items-center my-1 lg:items-start lg:w-[700px]">
               <Headling title="Integrated Messaging System" isCentered={true} />
-              <p className="my-7 lg:text-start lg:my-0">The integrated messaging system within the CRM dashboard for engineering teams allows for instant and seamless communication among team members. It eliminates the need for external messaging platforms, keeping all project-related conversations organized and easily accessible within the dashboard's interface.</p> 
+              <p className="my-7 lg:text-start lg:my-0">The integrated messaging system within the CRM dashboard for engineering teams allows for instant and seamless communication among team members. It eliminates the need for external messaging platforms, keeping all project-related conversations organized and easily accessible within the dashboards interface.</p> 
               
             </div>
         </div>  
