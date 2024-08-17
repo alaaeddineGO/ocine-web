@@ -25,8 +25,8 @@ const Card: FC<CardProps> = ({
     <section>
         <Headling title="Find a plan to power your projects" isCentered={true}/>
         <div className="w-full justify-center flex items-center gap-3">
-            <Button children="Montaly" ></Button>
-            <Button children="annuly" variant={'secondary'} ></Button>
+            <Button >Montaly</Button>
+            <Button variant={'secondary'} >annuly</Button>
         </div>
         <div className="w-full justify-center grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {pricingItems.map((item,index)=>{
@@ -40,7 +40,7 @@ const Card: FC<CardProps> = ({
                             <p className='text- xl'>{item.description}</p>
                             <div>
                                 <div className='flex items-end mt-4'><h3 className='text-5xl text-white'>{item.monthlyPrice}</h3>/month</div>                           
-                                {item.isMostPopular?(<Button children='buy now' isFullSize variant='primary'/>):(<Button children='buy now' isFullSize variant='secondary'/>)}
+                                {item.isMostPopular?(<Button isFullSize variant='primary'>buy now</Button>):(<Button  isFullSize variant='secondary'>buy now</Button>)}
                                 <ul className="space-y-4">
                                     {item.features.map((feature, index) => (
                                         <li key={index} className="flex items-center gap-4 text-base">
