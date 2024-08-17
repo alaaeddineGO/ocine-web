@@ -1,10 +1,10 @@
 import Image from "next/image";
 import  { ArrowBigRight, Atom } from "lucide-react";
-import Headling from "@/components/Headline";
-import Button from "@/components/button";
+import Headling from "../components/Headline";
+import Button from "../components/button";
 import Link from "next/link";
-import { clients } from "@/constant/client";
-import { features } from "@/constant/features";
+import { clients } from "../constant/client";
+import { features } from "../constant/features";
 import Card from "../components/Card";
 import Test from "../components/Test";
 
