@@ -1,113 +1,140 @@
 import Image from "next/image";
+import  { ArrowBigRight, Atom } from "lucide-react";
+import Headling from "@/components/Headline";
+import Button from "@/components/button";
+import Link from "next/link";
+import { clients } from "@/constant/client";
+import { features } from "@/constant/features";
+import Card from "@/components/Card";
+import Test from "@/components/test";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <main className="relative max-md:px-3 ">
+      <Image 
+      src={'/bg.png'}
+      width={1920}
+      height={1080}
+      alt="background"
+      className="absolute -z-50 w-full min-h-screen md:max-h-[760px] md:h-full lg:min-h-screen -top-20 left-0 opacity-10" />
+      {/* Home section */}
+      <section id="Home" className="mt-28">
+      <figure className="bubble w-96 lg:w-[520px] h-96 bg-indigo-600 top-16 -left-40" />
+      <figure className="bubble w-96 lg:w-[430px] h-96 bg-sky-600 bottom-16 md:bottom-44  -right-20 md:right-20" />
+      <div className="flex flex-col items-center mt-4 text-center">
+        <Button variant="secondary">
+          <h5 className="text-[12px] ">
+            new features is now available
+          </h5>
+          <ArrowBigRight/>
+        </Button>
+        <Headling title="A CRM dashboard for engineering teams" />
+        <p>Boost engineering team’s productivity with Ocean CRM dashboard that streamlines project management, collaboration, and data-driven decision-making.</p>
+      <div className="flex gap-4">
+        <Button >Get started<ArrowBigRight/></Button>
+        <Link href={'/pricing'}>
+          <Button children='View pricing' variant="secondary"/>
+        </Link>
+      </div>
+      <Image 
+      src={'/Hero-image (1).svg'}
+      width={800}
+      height={500}
+      alt="ae"
+      className="my-5"
+      />
+      </div>
+      </section>
+      {/* Home section */}
+      {/* clients section */}
+      <section id='clients' className="flex  flex-wrap text-center gap-4 justify-center">
+        {clients.map((client,index)=>{
+          return(
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+              key={index}
+              src={client.imageUrl}
+              width={200}
+              height={200}
+              className="cursor-pointer"
+              alt={client.alt}/> 
+          )
+        })}
+      </section>
+      {/* clients section */}
+      {/* Features section */}
+      <section>
+        <div className="text-center flex flex-col items-center my-7 lg:flex-row">
+          <div className="text-center flex flex-col items-center my-1 lg:items-start lg:w-[700px]">
+            <Headling title="Powerful features to help you manage all your leads." isCentered={true}  />
+            <p className="my-7 lg:text-start lg:my-0">Apsum dolor sit amet consectetur. Aliquam elementum elementum in ultrices. Dui maecenas ut eros turpis ultrices metus morbi aliquet vel.</p> 
+            <Button children='Get started'/>
+          </div>
+          <div className="flex gap-3 mt-11 items-center ml-5 justify-center flex-wrap  lg:w-full lg:items-start lg:justify-start lg:flex-col lg:flex-nowrap">
+            {features.map((feature,index)=>{
+              return(
+                <div key={index} className="w-[300px] gap-4 p-5 flex flex-col items-center  hover:border-[1px] rounded-md border-sky-500 hover:bg-sky-900 lg:flex-row lg:w-full lg:text-start lg:justify-start " >
+                  <div className="w-24">
+                    <Image
+                    src={feature.imageUrl}
+                    width={50}
+                    height={50}
+                    alt={feature.title}/>  
+                  </div>
+                  <div>
+                    <h3 className="text-white">{feature.title}</h3>
+                    <p className="">{feature.content}</p>
+                  </div>
+                </div>
+                )
+              })}
+            </div>
         </div>
-      </div>
+        {/* part 2 */}
+        <div className="text-center gap-x-8 flex flex-col items-center my-7 lg:flex-row">
+        <Image 
+          src={'/features/messaing.svg'}
+          width={600}
+          height={500}
+          alt="ae"
+          className="my-5"
+          />
+          
+            <div className="text-center flex flex-col items-center my-1 lg:items-start lg:w-[700px]">
+              <Headling title="Integrated Messaging System" isCentered={true} />
+              <p className="my-7 lg:text-start lg:my-0">The integrated messaging system within the CRM dashboard for engineering teams allows for instant and seamless communication among team members. It eliminates the need for external messaging platforms, keeping all project-related conversations organized and easily accessible within the dashboard's interface.</p> 
+              
+            </div>
+        </div>  
+        {/* part 2 */}
+        {/* part 3 */}
+        <div className="text-center gap-x-8 flex flex-col items-center my-7 lg:flex-row">
+        <div className="text-center flex flex-col items-center my-1 lg:items-start lg:w-[700px]">
+              <Headling title="Resource Allocation and Task Management" isCentered={true} />
+              <p className="my-7 lg:text-start lg:my-0">The task management system within the CRM dashboard for engineering teams enables efficient tracking and assignment of tasks. It provides a centralized platform to create, prioritize, and monitor tasks, ensuring streamlined project execution and improved collaboration among team members.</p> 
+              
+            </div>
+        <Image 
+          src={'/features/task-management.svg'}
+          width={600}
+          height={500}
+          alt="ae"
+          className="my-5"
+          />
+        </div>
+        {/* part 3 */}
+      </section>
+      {/* Features section */}
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      {/* Pricing section */}
+        <Card/>  
+      {/* Pricing section */}
+      <section>
+          <Headling title="Find a plan to power your projects" isCentered={true}/>
+      
+          <Test />  
+       
+      </section>
+      {/* Testimonials section */}
     </main>
   );
 }

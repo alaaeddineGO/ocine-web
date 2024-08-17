@@ -1,0 +1,1 @@
+export const nav_links =['Feature','pricig','transocdn','contact']
