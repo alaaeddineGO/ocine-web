@@ -5,7 +5,7 @@ import Button from "@/components/button";
 import Link from "next/link";
 import { clients } from "@/constant/client";
 import { features } from "@/constant/features";
-import Card from "@/components/Card";
+import Card from "../components/Card";
 import Test from "../components/Test";
 
 export default function Home() {
@@ -29,11 +29,11 @@ export default function Home() {
           <ArrowBigRight/>
         </Button>
         <Headling title="A CRM dashboard for engineering teams" />
-        <p>Boost engineering team’s productivity with Ocean CRM dashboard that streamlines project management, collaboration, and data-driven decision-making.</p>
+        <p>Boost engineering teams productivity with Ocean CRM dashboard that streamlines project management, collaboration, and data-driven decision-making.</p>
       <div className="flex gap-4">
         <Button >Get started<ArrowBigRight/></Button>
         <Link href={'/pricing'}>
-          <Button children='View pricing' variant="secondary"/>
+          <Button variant="secondary">View pricing</Button>
         </Link>
       </div>
       <Image 
@@ -67,7 +67,7 @@ export default function Home() {
           <div className="text-center flex flex-col items-center my-1 lg:items-start lg:w-[700px]">
             <Headling title="Powerful features to help you manage all your leads." isCentered={true}  />
             <p className="my-7 lg:text-start lg:my-0">Apsum dolor sit amet consectetur. Aliquam elementum elementum in ultrices. Dui maecenas ut eros turpis ultrices metus morbi aliquet vel.</p> 
-            <Button children='Get started'/>
+            <Button>Get started</Button>
           </div>
           <div className="flex gap-3 mt-11 items-center ml-5 justify-center flex-wrap  lg:w-full lg:items-start lg:justify-start lg:flex-col lg:flex-nowrap">
             {features.map((feature,index)=>{
@@ -126,12 +126,25 @@ export default function Home() {
       {/* Features section */}
 
       {/* Pricing section */}
-        <Card/>  
+      <Card
+          title="Premium Plan"
+          description="This is the premium plan."
+          monthlyPrice={20}
+          annuallyPrice={200}
+          features={["Feature A", "Feature B"]}
+          mode="monthly"
+        /> 
       {/* Pricing section */}
       <section>
           <Headling title="Find a plan to power your projects" isCentered={true}/>
       
-          <Test />  
+          <Test
+            imageUrl="https://example.com/image.jpg"
+            name="John Doe"
+            role="Software Engineer"
+            review="This product is amazing! It has changed the way I work."
+          />
+  
        
       </section>
       {/* Testimonials section */}
