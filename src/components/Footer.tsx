@@ -40,7 +40,7 @@ const Footer = () => {
                 {col.title}
               </h2>
               <ul>
-                {col.links.map((link, index) => (
+                {col.links.map((link: string, index: number) => (
                   <li
                     key={index}
                     className="font-normal pb-3 hover:text-sky-600 hover:ps-1 transition-all cursor-pointer"
