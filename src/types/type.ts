@@ -7,6 +7,10 @@ export interface Feature {
   title: string;
   content: string;
 }
+export interface FooterColumn {
+  title: string;
+  links: string[];
+}
 
 export interface featureBlock extends Feature {
   isReversed?: boolean;

@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Testimonial } from "../types/type";
 import Image from 'next/image'
 import { Atom } from 'lucide-react'
-import { testimonials } from '@/constant/testimonials';
+import { testimonials } from '../constant/testimonials';
 
 interface TestimonialCardProps extends Testimonial {
   

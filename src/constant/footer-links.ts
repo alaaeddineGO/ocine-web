@@ -1,4 +1,4 @@
-import { FooterColumn } from "@/types/interfaces";
+import { FooterColumn } from "../types/type";
 
 export const footerColumns: FooterColumn[] = [
   {
